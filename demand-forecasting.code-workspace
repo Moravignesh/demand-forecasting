@@ -1,0 +1,75 @@
+{
+  "folders": [
+    { "name": "Backend (FastAPI)", "path": "backend" },
+    { "name": "Frontend (Vite + React)", "path": "frontend" }
+  ],
+  "settings": {
+    "python.defaultInterpreterPath": "./backend/venv/Scripts/python",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/node_modules": true,
+      "**/.git": true,
+      "**/venv": true,
+      "**/dist": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "ms-python.pylance",
+      "bradlc.vscode-tailwindcss",
+      "dsznajder.es7-react-js-snippets",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode"
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "FastAPI Backend",
+        "type": "python",
+        "request": "launch",
+        "module": "uvicorn",
+        "args": ["main:app", "--reload", "--port", "8000"],
+        "cwd": "${workspaceFolder:Backend (FastAPI)}",
+        "env": {}
+      }
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "▶ Start Backend",
+        "type": "shell",
+        "command": "venv\\Scripts\\activate && uvicorn main:app --reload --port 8000",
+        "options": { "cwd": "${workspaceFolder:Backend (FastAPI)}" },
+        "group": "build",
+        "presentation": { "panel": "new", "reveal": "always", "group": "servers" }
+      },
+      {
+        "label": "▶ Start Frontend (npm run dev)",
+        "type": "shell",
+        "command": "npm run dev",
+        "options": { "cwd": "${workspaceFolder:Frontend (Vite + React)}" },
+        "group": "build",
+        "presentation": { "panel": "new", "reveal": "always", "group": "servers" }
+      },
+      {
+        "label": "📦 Install Backend Deps",
+        "type": "shell",
+        "command": "pip install -r requirements.txt",
+        "options": { "cwd": "${workspaceFolder:Backend (FastAPI)}" }
+      },
+      {
+        "label": "📦 Install Frontend Deps (npm install)",
+        "type": "shell",
+        "command": "npm install",
+        "options": { "cwd": "${workspaceFolder:Frontend (Vite + React)}" }
+      }
+    ]
+  }
+}
