@@ -13,6 +13,11 @@ A full-stack web application that allows users to upload historical sales datase
 
 ---
 
+### Demo videos
+
+frontend video : https://drive.google.com/file/d/1lp9AKrNMwqjrG1ITagjyalxnaYr_5uIi/view?usp=sharing
+
+backend video : https://drive.google.com/file/d/1YZeGO-VvPUQY5LFXZXtQqTXeNf2aDDmy/view?usp=sharing
 ## 📁 Project Structure
 
 ```
